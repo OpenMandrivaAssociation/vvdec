@@ -47,9 +47,6 @@ This package contains the development files.
 %install
 %make_install -C build
 
-%post -n %{lname} -p /sbin/ldconfig
-%postun -n %{lname} -p /sbin/ldconfig
-
 %files
 %license LICENSE.txt
 %doc README.md
@@ -60,5 +57,5 @@ This package contains the development files.
 
 %files -n %{devname}
 %{_includedir}/%{name}/
-%{_libdir}/pkgconfig/%{lname}.pc
+%{_libdir}/pkgconfig/libvvdec.pc
 %{_libdir}/cmake/%{name}/
