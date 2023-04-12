@@ -11,6 +11,8 @@ Source:         https://github.com/fraunhoferhhi/vvdec/archive/v%{version}/%{nam
 
 BuildRequires:  cmake
 
+Requires:       %{libname} = %{version}
+
 %description
 A fast and efficient H.266/VVC decoder implementation.
 
@@ -27,7 +29,7 @@ decoding capabilities.
 %package -n %{devname}
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 Group:          Development/Libraries/C and C++
-Requires:       %{lname} = %{version}
+Requires:       %{libname} = %{version}
 
 %description -n %{devname}
 A fast and efficient H.266/VVC decoder implementation.
