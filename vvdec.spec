@@ -1,32 +1,35 @@
+%define libname %mklibname vvdec
+%define devname %mklibname -d vvdec
+
 Name:           vvdec
-Version:        1.6.0
-Release:        0
+Version:        1.6.1
+Release:        1
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
-Source:         https://github.com/fraunhoferhhi/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-BuildRequires:  c++_compiler
-BuildRequires:  cmake >= 3.13
+Source:         https://github.com/fraunhoferhhi/vvdec/archive/v%{version}/%{name}-%{version}.tar.gz
+
+BuildRequires:  cmake
 
 %description
 A fast and efficient H.266/VVC decoder implementation.
 
-%package -n %{lname}
+%package -n %{libname}
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 Group:          System/Libraries
 
-%description -n %{lname}
+%description -n %{libname}
 A fast and efficient H.266/VVC decoder implementation.
 
 This package contains a library that can other apps use to utilize the
 decoding capabilities.
 
-%package devel
+%package -n %{devname}
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 Group:          Development/Libraries/C and C++
 Requires:       %{lname} = %{version}
 
-%description devel
+%description -n %{devname}
 A fast and efficient H.266/VVC decoder implementation.
 
 This package contains the development files.
@@ -37,10 +40,10 @@ This package contains the development files.
 %build
 %cmake \
   -DCMAKE_SKIP_RPATH=YES
-%cmake_build
+%make_build
 
 %install
-%cmake_install
+%make_install -C build
 
 %post -n %{lname} -p /sbin/ldconfig
 %postun -n %{lname} -p /sbin/ldconfig
@@ -50,10 +53,10 @@ This package contains the development files.
 %doc README.md
 %{_bindir}/vvdecapp
 
-%files -n %{lname}
+%files -n %{libname}
 %{_libdir}/*.so
 
-%files devel
+%files -n %{devname}
 %{_includedir}/%{name}/
 %{_libdir}/pkgconfig/%{lname}.pc
 %{_libdir}/cmake/%{name}/
