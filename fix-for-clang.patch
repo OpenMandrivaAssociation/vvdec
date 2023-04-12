@@ -1,0 +1,12 @@
+diff -uraN vvdec-1.6.1/source/Lib/CommonLib/CommonDef.h omv-vvdec-1.6.1/source/Lib/CommonLib/CommonDef.h
+--- vvdec-1.6.1/source/Lib/CommonLib/CommonDef.h	2023-01-23 17:15:21.000000000 +0100
++++ omv-vvdec-1.6.1/source/Lib/CommonLib/CommonDef.h	2023-04-12 20:23:06.642092275 +0200
+@@ -109,7 +109,7 @@
+ # define GCC_EXTRA_WARNING_switch_enum
+ #endif
+ 
+-#if __GNUC__ >= 8
++#if defined( __GNUC__ ) && __GNUC__ >= 8 && !defined( __clang__ )
+ # define GCC_WARNING_DISABLE_maybe_uninitialized _Pragma("GCC diagnostic push"); _Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"");
+ # define GCC_WARNING_DISABLE_class_memaccess     _Pragma("GCC diagnostic push"); _Pragma("GCC diagnostic ignored \"-Wclass-memaccess\"");
+ #else
