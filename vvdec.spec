@@ -2,13 +2,13 @@
 %define devname %mklibname -d vvdec
 
 Name:           vvdec
-Version:        1.6.1
+Version:        2.0.0
 Release:        1
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source:         https://github.com/fraunhoferhhi/vvdec/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:         fix-for-clang.patch
+#Patch0:         fix-for-clang.patch
 
 BuildRequires:  cmake
 
@@ -42,7 +42,8 @@ This package contains the development files.
 
 %build
 %cmake \
-  -DCMAKE_SKIP_RPATH=YES
+  -DCMAKE_SKIP_RPATH=YES \
+  -DVVDEC_INSTALL_VVDECAPP=ON
 %make_build
 
 %install
