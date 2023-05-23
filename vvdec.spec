@@ -8,7 +8,7 @@ Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source:         https://github.com/fraunhoferhhi/vvdec/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:         fix-for-clang.patch
+#Patch0:         fix-for-clang.patch
 
 BuildRequires:  cmake
 
