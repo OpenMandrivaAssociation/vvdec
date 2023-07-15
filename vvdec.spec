@@ -1,3 +1,4 @@
+%define major 2
 %define libname %mklibname vvdec
 %define devname %mklibname -d vvdec
 
@@ -56,6 +57,7 @@ This package contains the development files.
 
 %files -n %{libname}
 %{_libdir}/*.so
+%{_libdir}/libvvdec.so.%{major}*
 
 %files -n %{devname}
 %{_includedir}/%{name}/
