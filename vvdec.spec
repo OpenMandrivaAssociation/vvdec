@@ -3,7 +3,7 @@
 %define devname %mklibname -d vvdec
 
 Name:           vvdec
-Version:        2.1.2
+Version:        2.1.3
 Release:        1
 Summary:        Fraunhofer Versatile Video Decoder (VVdeC)
 License:        BSD-3-Clause-Clear
