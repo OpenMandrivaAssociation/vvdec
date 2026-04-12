@@ -11,6 +11,7 @@ URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-an
 Source:         https://github.com/fraunhoferhhi/vvdec/archive/v%{version}/%{name}-%{version}.tar.gz
 #Patch0:         fix-for-clang.patch
 
+BuildRequires:  make
 BuildRequires:  cmake
 
 Requires:       %{libname} = %{version}
