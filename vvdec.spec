@@ -1,3 +1,5 @@
+%global optflags %{optflags} -Wno-error=unused-template
+
 %define major 3
 %define libname %mklibname vvdec
 %define devname %mklibname -d vvdec
